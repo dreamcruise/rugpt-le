@@ -1,0 +1,45 @@
+.main-container{
+    min-height: 80vh;
+}
+
+.form-container{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #F4f7f9;
+    width: 400px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    
+}
+
+.btn{
+    margin-top: 15px;
+    font-weight: 100;
+}
+
+input, label, span{
+    font-weight: 100;
+}
+
+span{
+    margin-bottom: 7px;
+}
+
+label{
+    margin-top: 7px;
+}
+
+span{
+    font-size: 12px;
+}
+
+div[name="inn-lbl"]{
+    display: none;
+  }
+  
+  input[name="is_organization"]:checked~div[name="inn-lbl"] {
+    display: inline-block;
+  }

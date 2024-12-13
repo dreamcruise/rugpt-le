@@ -1,0 +1,109 @@
+.intro{
+    margin-top: 20px;
+}
+
+.intro-img{
+    height: 380px;
+    width: 380px;
+}
+
+.container-intro-text{
+    margin-top: 70px;
+    text-align: center;
+}
+
+.container-works-text{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.intro-text-title{
+    font-size: 30px;
+}
+
+.intro-models{
+    font-size: 14px;
+    color: grey;
+    font-weight: 100;
+}
+.intro-btn{
+    margin-top: 70px;
+}
+
+.works-title{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.works-text-title{
+    font-size: 24px;
+}
+
+.works-text-descr{
+    font-size: 18px;
+    font-weight: 100;
+    
+}
+
+.container-why-title{
+    font-size: 18px;
+}
+
+.row{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.why{
+    background-color: #F4f7f9;
+}
+
+.why-title, .feedback-title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.why-text, .feedback-text{
+    font-size: 24px;
+    text-align: center;
+    font-weight: 100;
+}
+
+.container-why{
+    background-color: white;
+    border:#F4f7f9 solid 5px;
+    margin-bottom: 15px;
+}
+
+.material-icons{
+    color: #6399f7;
+    font-size: 42px;
+}
+
+.container-why-text{
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.container-why-title{
+    margin-top: 5px;
+}
+
+.call-form{
+    background-color: #F4f7f9;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+
+.form-el{
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 100;
+}
+
+.btn{
+    font-weight: 100;
+}

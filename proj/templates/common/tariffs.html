@@ -1,0 +1,353 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Тарифы{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/common/tariffs.css' %}">{% endblock %}
+
+
+{% block content %}
+<div class="intro">
+    <p class="intro-title">ТАРИФЫ</p>
+    <p class="intro-text">Внимание! У нас нет подписок и скрытых платежей!</p>
+    <p class="intro-text">Вы платите только за то, что используете. Для языковых моделей 
+        цены указаны за 1 000 "токенов" (может быть словом, может быть частью слова, иногда знаком препинания).</p>
+    <p class="intro-text">Цена за токены "запроса" (то, что вы отправляете в модель) и "ответа" (то, что модель возвращает) отличается.</p>
+</div>
+
+<div class="llm">
+    <p class="llm-title">Языковые модели (LLM)</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th >Поставщик</th>
+                <th >Модель</th>
+                <th >Запрос ₽/1К</th>
+                <th >Ответ ₽/1К</th>
+                <th >Кэш ₽/1К</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OpenAI</td>
+                <td>o1-preview</td>
+                <td>3,00</td>
+                <td>9,00</td>
+                <td>1,50</td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>o1-mini</td>
+                <td>0,864</td>
+                <td>1,80</td>
+                <td>0,432</td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>gpt-4o</td>
+                <td>0,72</td>
+                <td>2,88</td>
+                <td>0,36</td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>gpt-4o-2024-05-13</td>
+                <td>1,44</td>
+                <td>4,32</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>gpt-4o-mini</td>
+                <td>0,0432</td>
+                <td>0,1728</td>
+                <td>0,0216</td>
+            </tr>
+
+            <tr>
+                <td>OpenA</td>
+                <td>gpt-4-turbo</td>
+                <td>2,88</td>
+                <td>8,64</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>gpt-4</td>
+                <td>8,64</td>
+                <td>17,28</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>gpt-3.5-turbo-0125</td>
+                <td>0,144</td>
+                <td>0,432</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>gpt-3.5-turbo-1106</td>
+                <td>0,30</td>
+                <td>0,60</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>text-embedding-3-small</td>
+                <td>0,00576</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>text-embedding-3-large</td>
+                <td>0,03744</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>OpenAI</td>
+                <td>ada v2</td>
+                <td>0,03</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Google</td>
+                <td>gemini-1.0-pro</td>
+                <td>0,144</td>
+                <td>0,432</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Google</td>
+                <td>gemini-1.5-pro (< 128К)</td>
+                <td>1,008</td>
+                <td>3,024</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Google</td>
+                <td>gemini-1.5-pro (> 128К)</td>
+                <td>2,016</td>
+                <td>6,048</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Google</td>
+                <td>gemini-1.5-flash (< 128К)</td>
+                <td>0,0216</td>
+                <td>0,0864</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Google</td>
+                <td>gemini-1.5-flash (> 128К)</td>
+                <td>0,0432</td>
+                <td>0,1728</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Anthropic</td>
+                <td>claude-3-opus-20240229</td>
+                <td>4,32</td>
+                <td>21,60</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Anthropic</td>
+                <td>claude-3-sonnet-20240229</td>
+                <td>0,864</td>
+                <td>4,32</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Anthropic</td>
+                <td>claude-3-haiku-20240307</td>
+                <td>0,072</td>
+                <td>0,36</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Anthropic</td>
+                <td>claude-3-5-sonnet-20241022</td>
+                <td>0,864</td>
+                <td>4,32</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Anthropic</td>
+                <td>claude-3-5-sonnet-20240620</td>
+                <td>0,864</td>
+                <td>4,32</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Anthropic</td>
+                <td>claude-3-5-haiku-20241022</td>
+                <td>0,288</td>
+                <td>1,44</td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class="subscription">
+    <p>Профессиональная подписка</p>
+    <p>Для тех, кто хочет получить максимальный функционал, мы предусмотрели тариф ПРО.</p>
+    <p>Вы сможете получить доступ к продвинутым инструментам API, таким как Assistants API, Code Interpreter, Vector Store, работа с файлами.</p>
+    <p>Для обычных запросов к языковым моделям, включая распознавание изображений, генерацию изображений или работу с аудио тариф ПРО не нужен.</p>
+
+    <ul>
+        <li>Подписка - 1500 руб/мес</li>
+        <li>Code Interpreter - 3 руб / сессия</li>
+        <li>Vector Store - 10,00 ₽ за 1 ГБ в день</li>
+    </ul>
+</div>
+
+<div class="img">
+    <p>Генерация изображений</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th >Поставщик</th>
+                <th >Модель</th>
+                <th >Разрешение пикель</th>
+                <th >Стоимость ₽/1изображение</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 2</td>
+                <td>256x256</td>
+                <td>4,60</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 2</td>
+                <td>512x512</td>
+                <td>5,19</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 2</td>
+                <td>1024x1024</td>
+                <td>5,76</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 3</td>
+                <td>1024x1024</td>
+                <td>11,52</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 3</td>
+                <td>1792x1024</td>
+                <td>23,04</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 3</td>
+                <td>1024x1792</td>
+                <td>23,04</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 3 HD</td>
+                <td>1024x1024</td>
+                <td>23,04</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 3 HD</td>
+                <td>1792x1024</td>
+                <td>34,56</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>DALL-E 3 HD</td>
+                <td>1024x1792</td>
+                <td>34,56</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class="audio">
+
+    <p>Аудио-модели</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Поставщик</th>
+                <th>Модель</th>
+                <th>Стоимость ₽/1минута</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OpenAI</td>
+                <td>Whisper</td>
+                <td>1,73</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>TTS</td>
+                <td>4,32</td>
+            </tr>
+            <tr>
+                <td>OpenAI</td>
+                <td>TTS HD</td>
+                <td>8,64</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class="conclusion">
+    <p>Тарифы пересматриваются один раз в месяц и могут быть изменены в случае существенного 
+        изменения цен от провайдера или изменения курса валют. Всех наших клиентов о любых изменениях тарифов 
+        мы оповещаем заранее.
+    </p>
+</div>
+
+<div class="registration">
+    <p>Начните использовать gptru</p>
+    <p>Решение в области искусственного ителлекта для вашего бизнеса</p>
+    <a class="btn btn-primary">Регистрация</a>
+</div>
+
+{% endblock %}

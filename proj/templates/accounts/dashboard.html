@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/accounts/accounts.css' %}">{% endblock %}
+
+{% block content %}
+
+<div class="content-container col-12">
+    <div class="balance-container">
+        <a class='btn btn-primary' href="{% url 'balance' user.username %}">Пополнить баланс</a>
+    </div>
+    <div class="key-container">
+        {% if keys %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ключ</th>
+                    <th>Создан</th>
+                    <th>Последний раз использован</th>
+                    <th>Детали</th>
+                </tr>
+
+            </thead>
+            
+            {% for key in keys %}
+            <tbody>
+                <tr>
+                    <td>{{key.key}}</td>
+                    <td>{{key.created}}</td>
+                    <td>{{key.last_used}}</td>
+                    <td><a href="{% url 'pk_delete' user.username key.pk_slug %}">Детали</a></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>Пока ключи не созданы</p>
+        {% endif %}
+ 
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-primary" value="+ Создать новый ключ API">
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

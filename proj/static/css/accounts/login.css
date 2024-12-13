@@ -1,0 +1,29 @@
+.form-container{
+    margin-top: 70px;
+    background-color: #F4f7f9;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-weight: 100;
+    
+}
+
+.main-container{
+    height: 70vh;
+}
+
+.btn{
+    margin-top: 15px;
+    font-weight: 100;
+}
+
+label{
+    margin-top: 7px;
+}
+
+.registration{
+    font-size: 12px;
+}

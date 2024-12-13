@@ -1,0 +1,39 @@
+.footer-content{
+    background-color: #111111;
+    color: white;
+
+}
+.row-content{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.footer-block{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+.footer-block-item{
+    font-size: 12px;
+    text-decoration: none;
+    color: white
+}
+
+.footer-block-title{
+    font-size: 14px;
+}
+
+.footer-logo, .navbar-brand-logo{
+    height: 48px;
+    width: 120px;
+}
+
+.nav-item{
+    font-weight: 100;
+}
+
+.footer-block-item-comp{
+    color: #F4f7f9;
+    font-size: 12px;
+}

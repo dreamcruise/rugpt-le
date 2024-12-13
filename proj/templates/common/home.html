@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/common/home.css' %}">{% endblock %}
+
+
+{% block content %}
+<div class="intro col-12">
+    <div class="row">
+        <div class="container-intro-text col-lg-6 col-sm-12">
+            <p class="intro-text-title">Доступ к мировым нейросетям без VPN, с оплатой в рублях<br><span class="intro-models">OpenAI, Gemini, Anthropic</span></p>
+            <a class="btn btn-primary intro-btn" href="{% url 'login' %}">Начать пользоваться</a>
+        </div>
+        <div class="container-intro-img col-lg-6 col-sm-12">
+            <img class="intro-img" src="{% static 'images/common/home/circle_logo.jpg' %}">
+        </div>
+    </div>
+</div>
+
+<div class="works col-12">
+
+    <p class="works-title">Как работает gptru</p>
+    
+    <div class="row">
+        <div class="container-works-img col-lg-6 col-sm-12">
+            <img src="{% static 'images/common/home/registration.svg' %}">
+        </div>
+
+        <div class="container-works-text col-lg-6 col-sm-12">
+            <p class="works-text-title">Регистрация</p>
+            <p class="works-text-descr">Регистрируетесь и получаете доступ в личный кабинет. Получаете API-ключ, который сможете использовать в своем 
+                приложении. Все методы и параметры останутся такими же, как у оригинального API, также вы сможете использовать 
+                официальные библиотеки.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="container-works-text col-lg-6 col-sm-12">
+            <p class="works-text-title">Запросы из России</p>
+            <p class="works-text-descr">Мы проксируем и максируем ваши запросы через наши сервера и CDN, 
+                расположенные за границей. Так мы исключаем вероятность блокировки по региону.
+            </p>
+        </div>
+
+        <div class="container-works-img col-lg-6 col-sm-12">
+            <img src="{% static 'images/common/home/requests.svg' %}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-works-img col-lg-6 col-sm-12">
+            <img src="{% static 'images/common/home/answers.svg' %}">
+        </div>
+
+        <div class="container-works-text col-lg-6 col-sm-12">
+            <p class="works-text-title">Ответы AI</p>
+            <p class="works-text-descr">Ответы от поставщика (AI-сетей) мы также пробрасываем через свою инфраструктуру 
+                и передаем его вашему приложению через API. Весь процесс для вас и вашего приложения полностью 
+                эммулирует прямое взаимодействие с официальным API поставщика услуги.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="why col-12">
+    <p class="why-title">Почему вам стоит использовать gptru</p>
+    <p class="why-text">Мы предоставляем доступ для российских компаний и частных лиц к API ведущих поставщиков AI из России без VPN</p>
+    <div class="row">
+        <div class="container-why col-lg-4 col-md-6 col-sm-12">
+            <span class="material-icons">
+                vpn_lock
+            </span>
+            <p class="container-why-title">Без VPN</p>
+            <p class="container-why-text">Ваши запросы мы маскируем и проксируем, они проходят через наши зарубежные
+                 серверы и CDN, вероятность блокировки исключена.</p>
+        </div>
+
+        <div class="container-why col-lg-4 col-md-6 col-sm-12">
+            <span class="material-icons">
+                touch_app
+            </span>
+            <p class="container-why-title">Просто подключиться</p>
+            <p class="container-why-text">Все просто! Для подключения к нашему API достаточно заменить адрес и ключ 
+                API в своем приложении. API-ключ вы найдете в своем личном кабинете.
+            </p>
+        </div>
+
+        <div class="container-why col-lg-4 col-md-6 col-sm-12">
+            <span class="material-icons">
+                credit_card
+            </span>
+            <p class="container-why-title">Не нужна зарубежная карта</p>
+            <p class="container-why-text">Вы оплачиваете наше API рублями, путем безналичного перевода на счет компании 
+                (закрывающие документы предоставляем) или картой любого российского банка.
+            </p>
+        </div>
+
+        <div class="container-why col-lg-4 col-md-6 col-sm-12">
+            <span class="material-icons">
+                phone_iphone
+            </span>
+            <p class="container-why-title">Не нужен иностранный номер</p>
+            <p class="container-why-text">Вам не нужен зарубежный номер телефона, для регистрации в нашем сервисе, 
+                вам достаточно адреса электронной почты.
+            </p>
+        </div>
+
+        <div class="container-why col-lg-4 col-md-6 col-sm-12">
+            <span class="material-icons">
+                trending_up
+            </span>
+            <p class="container-why-title">Больше интеграций</p>
+            <p class="container-why-text">Постоянно совершенствуем сервис и добавляем новые продукты. 
+                На подходе Midjourney, Google Gemini
+            </p>
+        </div>
+
+        <div class="container-why col-lg-4 col-md-6 col-sm-12">
+            <span class="material-icons">
+                lock_outline
+            </span>
+            <p class="container-why-title">Безопасность данных</p>
+            <p class="container-why-text">Мы не собираем и не храним данные и историю запросов и ответов, которые 
+                проходят через наш API, вы можете быть спокойны в части конфиденциальности.</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="feedback col-12">
+    <p class="feedback-title">Остались вопросы?</p>
+    <p class="feedback-text">Заполните форму, наш менеджер свяжется с вами и ответит на них</p>
+    <div class="form-container">
+        <form action="" method="POST" class="call-form">
+            {% csrf_token %}
+            <label for="#phone-number" class="form-el">Номер телефона</label>
+            <input type="text" required="True" id="phone-number" class="form-el"><br>
+            <label for="#connect-type" class="form-el">Предпочитаемый способ связи</label>
+            <select id="connect-type" class="form-el">
+                <option>Звонок</option>
+                <option>Telegram</option>
+                <option>Whatsapp</option>
+            </select><br>
+            <label class="form-el" for="#client-name">Как к Вам обратиться</label>
+            <input type="text" id="client-name" class="form-el" required="True"><br>
+            <input type="submit" class="form-el btn btn-primary" value="Отправить">
+        </form>
+    </div>
+
+</div>
+{% endblock %}

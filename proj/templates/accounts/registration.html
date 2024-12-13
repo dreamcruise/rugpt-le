@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title  %}Регистрация{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/accounts/registration.css' %}"> {% endblock %}
+
+{% block content %}
+
+<div class="main-container">
+    <div class="form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <label>{{form.username.label}}</label><br>
+            {{form.username}}<br>
+            <span>{{form.username.help_text}}</span><br>
+
+            <label>{{form.password1.label}}</label><br>
+            {{form.password1}}<br>
+            <span>{{form.password1.help_text}}</span><br>
+
+            <label>{{form.password2.label}}</label><br>
+            {{form.password2}}<br>
+            <span>{{form.password2.help_text}}</span><br>
+            
+            
+            <label>{{form.name.label}}</label><br>
+            {{form.name}}<br>
+            <span>{{form.name.help_text}}</span><br>
+            
+            <label>{{form.is_organization.label}}</label><br>
+            {{form.is_organization}}<br>
+            <div name="inn-lbl">
+                <label >{{form.inn.label}}</label><br>
+                {{form.inn}}
+            </div><br>
+
+            <input type="submit" class="btn btn-primary" value="Зарегистрироваться">
+        </form>
+    </div>
+
+</div>
+    
+
+
+{% endblock %}

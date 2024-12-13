@@ -1,0 +1,17 @@
+.content-container{
+    margin: 10px;
+    min-height: 78vh;
+}
+
+td, p{
+    font-weight: 100;
+} 
+
+.balance-container, .key-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn{
+    font-weight: 100;
+}
