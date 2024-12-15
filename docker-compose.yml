@@ -3,7 +3,7 @@ version: '3.11'
 services:
   web:
     build: ./proj
-    command: python manage.py runserver 0.0.0.0:8000
+    command: sh -c "gunicorn --bind 0.0.0.0:8000 proj.wsgi"
     volumes:
       - ./proj/:/usr/src/proj/
     ports:

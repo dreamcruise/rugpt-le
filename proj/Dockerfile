@@ -1,4 +1,4 @@
-FROM python:3.11-bullseye
+FROM --platform=linux/amd64 python:3.11-bullseye
 
 WORKDIR /usr/src/app
 
