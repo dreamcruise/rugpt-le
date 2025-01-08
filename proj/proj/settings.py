@@ -30,7 +30,6 @@ SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG')
 
 ALLOWED_HOSTS = ['*',]
-#CSRF_TRUSTED_ORIGINS = ['https://*.rugpt-le-davidst.amvera.io','https://*.127.0.0.1', 'https://*.gptru.ru',]
 
 AUTH_USER_MODEL = 'accounts.UserAccount'
 LOGIN_REDIRECT_URL = 'home'

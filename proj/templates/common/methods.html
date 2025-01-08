@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Методы{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/common/methods.css' %}">{% endblock %}
+
+
+{% block content %}
+
+    <h1>Methods</h1>
+    <div class="main-container">
+        <p>На данной странице перечислены методы API</p>
+        <p>Для отправки запроса необходимо в личном кабинете (ЛК) сгененировать ключ ДОБАВИТЬ ФОТО КНОПКИ</p>
+        <p>Он используется в заголовке запроса в <code>Authorization</code></p>
+
+        <div class="method-container">
+            <h3>Генерация текста в ChatGPT</h3>
+            <p>Примеры запросов:</p>
+            <p>Python</p>
+            <pre>
+                import requests
+                import json
+
+                req = requests.post(
+                        url='https://www.fmt-ai.com/gpt',
+                        headers={
+                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                        },
+                
+                        json={
+                            "model": "gpt-4o",
+                            "messages": [
+                            {
+                            "role": "system",
+                            "content": [
+                                {
+                                "type": "text",
+                                "text": "You are a helpful assistant that answers programming questions in the style of a southern belle from the southeast United States."
+                                }
+                            ]
+                            },
+                            {
+                            "role": "user",
+                            "content": [
+                                {
+                                "type": "text",
+                                "text": "Are semicolons optional in JavaScript?"
+                                }
+                            ]
+                            }
+                        ]
+                    }
+                )
+            </pre>
+            
+            <p>cURL</p>
+            <pre>
+                curl -X POST \
+                -H "Authorization: ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y" \
+                -d "{
+                \"model\": \"gpt-4o\",
+                    \"messages\": [
+                    {
+                    \"role\": \"system\",
+                    \"content\": [
+                        {
+                        \"type\": \"text\",
+                        \"text\": \"You are a helpful assistant that answers programming questions in the style of a southern belle from the southeast United States.\"
+                        }
+                    ]
+                    },
+                    {
+                    \"role\": \"user\",
+                    \"content\": [
+                        {
+                        \"type\": \"text\",
+                        \"text\": \"Are semicolons optional in JavaScript?\"
+                        }
+                    ]
+                    }
+                ]
+                }" "https://www.fmt-ai.com/gpt"
+            </pre>
+
+            <p>Ответ</p>
+            <pre>
+                {
+                    "id": "chatcmpl-AnB2bmDiq5d6hvpta9s8ozFJOvzBh",
+                    "created": 1736283877,
+                    "object": "chat.completion",
+                    "model": "gpt-4o-2024-08-06",
+                    "usage": {
+                        "completion_tokens": 259,
+                        "prompt_tokens": 42,
+                        "total_tokens": 301,
+                        "completion_tokens_details": {
+                            "reasoning_tokens": 0
+                        }
+                    },
+                    "choices": [
+                        {
+                            "message": {
+                                "role": "assistant",
+                                "content": "Oh, sugar, that's such a good question! JavaScript can be a bit like a charmingly unpredictable Southern summer—sometimes it does things you don't expect. So, let's talk about semicolons, shall we?\n\nIn JavaScript, semicolons are technically optional because of a feature known as \"automatic semicolon insertion\" (ASI). What this lil' feature does is add semicolons at the ends of statements where it thinks one is needed. It's like a helpful little elf tidying up for you.\n\nHowever, I must say that relying on ASI can sometimes lead to unexpected results, kinda like getting caught in a sudden rain shower. There are situations where omitting a semicolon can cause your code to behave differently than you intended. For example, when statements are not terminated properly, your sweet JavaScript code might end up getting all tangled, especially in particular cases involving return statements, loops, and function declarations.\n\nSo, while you could leave out some semicolons and let JavaScript fill in the blanks, many developers choose to include them intentionally to avoid any surprises. Think of semicolons like a nice, predictable glass of sweet tea on a hot day—they just make things better and clearer.\n\nDoes that make it a bit clearer for ya, darlin'?"
+                            },
+                            "logprob": null,
+                            "finish_reason": "stop",
+                            "index": 0
+                        }
+                    ]
+                }
+            </pre>
+        </div>
+
+        <div class="method-container">
+            <h3>Генерация изображения в ChatGPT</h3>
+            <p>Примеры запросов:</p>
+            <p>Python</p>
+            <pre>
+                import requests
+                import json
+
+                req = requests.post(
+                        url='https://www.fmt-ai.com/dalle',
+                        headers={
+                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                        },
+                
+                        json={
+                            "prompt": "Spartans",
+                            "size": "1024x1024",
+                            "quality": "standard"
+                        }
+                
+                )
+            </pre>
+            
+            <p>cURL</p>
+            <pre>
+                curl -X POST \
+                -H "Authorization: ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y" \
+                -d "{
+                    \"prompt\": \"Spartans\",
+                    \"size\": \"1024x1024\",
+                    \"quality\": \"standard\"}" "https://www.fmt-ai.com/dalle"
+            </pre>
+
+            <p>Ответ</p>
+            <pre>
+                {
+                    "created": 1736330889,
+                    "data": {
+                        "revised_prompt": "Depict an array of ancient Spartan warriors marching over a hill in a phalanx formation. Fierce and resolute, they are carrying large rounded hoplon shields and long, pointed dory spears. They are sturdy and physically fit individuals of various descents including Caucasian, Hispanic, and Middle-Eastern. Some have beards, others are clean shaven. The sky above the hill is bright, basking the scene in warm sunlight. The landscape around them is a mix of green grass and earthy trails, leaving the impression of a historical scene from ancient Greece.",
+                        "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-LyA7nLX9O2uLRI2lUr5MxmcN/user-U8Ts88Rz8m0x2CIysuWSrExF/img-JinyQHyOWo4OnVpHAiKQ4fcI.png?st=2025-01-08T09%3A08%3A09Z&se=2025-01-08T11%3A08%3A09Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-01-08T00%3A10%3A27Z&ske=2025-01-09T00%3A10%3A27Z&sks=b&skv=2024-08-04&sig=9OuREVGA/GT9DRWgZPDhXgSVPyo/wBnYquGkuPuvgXE%3D"
+                    }
+                }
+            </pre>
+        </div>
+    
+        <div class="method-container">
+            <h3>Транскрибация аудио в ChatGPT</h3>
+            <p>Примеры запросов:</p>
+            <p>Python</p>
+            <pre>
+                import requests
+
+                file = open('ttr1.mp3', 'rb')
+                req = requests.post(
+                        url='https://www.fmt-ai.com/stt',
+                        headers={
+                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                        },
+
+                        data={
+                            'model': "whisper-1"
+                        },
+                        files={
+                            'file': file
+                        }
+                )
+            </pre>
+
+            <p>Ответ</p>
+            <pre>
+                Сервер отправляет ответ,  в втрибуте <code>text</code> которого содержится транскрибация
+                <code>'Да, на Титане, крупнейшем спутнике Сатурна, действительно существуют осадки, которые можно сравнить с дождём. Однако это не водяной дождь, как мы его знаем на Земле. На Титане идёт дождь из метана и этана, так как эти вещества находятся в жидком состоянии при температурах, характерных для Титана, около 180 градусов Цельсия. Метановые дожди могут образовываться в результате конденсации метана в атмосфере, и некоторые исследования показали, что такие осадки могут происходить в результате сезонных изменений. На Титане также имеются реки и озёра из метана и этана, что создаёт уникальный климатический и геологический цикл, отличающийся от земного.'</code>
+            </pre>
+        </div>
+
+        <div class="method-container">
+            <h3>Конвертация текста в звуковую дорожку в ChatGPT</h3>
+            <p>Примеры запросов:</p>
+            <p>Python</p>
+            <pre>
+                import requests
+                import json
+
+                req = requests.post(
+                        url='https://www.fmt-ai.com/tts',
+                        headers={
+                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                        },
+                
+                        json={
+                            'model': 'tts-1',
+                            'voice': "echo",
+                            'input': 'Фото́н (от др.-греч. φῶς, фос — свет) — фундаментальная частица, квант электромагнитного излучения (в узком смысле — света) в виде поперечных электромагнитных волн и переносчик электромагнитного взаимодействия. Это безмассовая частица, способная существовать, только двигаясь со скоростью света. Электрический заряд фотона равен нулю. Фотон может находиться только в двух спиновых состояниях с проекцией спина на направление движения (спиральностью) ±1. В физике фотоны обозначаются буквой γ.'
+                        }
+                )
+            </pre>
+            
+            <p>cURL</p>
+            <pre>
+                curl -X POST \
+                -H "Authorization: ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y" \
+                -d "{\"model\": \"tts-1\",
+                \"voice\": \"echo\",
+                \"input\": \"Фото́н (от др.-греч. φῶς, фос — свет) — фундаментальная частица, квант электромагнитного излучения (в узком смысле — света) в виде поперечных электромагнитных волн и переносчик электромагнитного взаимодействия. Это безмассовая частица, способная существовать, только двигаясь со скоростью света. Электрический заряд фотона равен нулю. Фотон может находиться только в двух спиновых состояниях с проекцией спина на направление движения (спиральностью) ±1. В физике фотоны обозначаются буквой γ.
+                \"}" "https://www.fmt-ai.com/tts"
+            </pre>
+
+            <p>Ответ</p>
+            <p>Возвращает аудио-файл, который можно обработать и сохранить. Пример:</p>
+            <pre>
+                with open('audio.mp3', 'wb') as file:
+                    file.write(r.content)
+            </pre>
+        </div>
+
+
+    </div>
+
+    
+
+{% endblock %}
