@@ -7,15 +7,23 @@
 
 {% block content %}
 
-    <h1>Methods</h1>
     <div class="main-container">
         <p>На данной странице перечислены методы API</p>
-        <p>Для отправки запроса необходимо в личном кабинете (ЛК) сгененировать ключ ДОБАВИТЬ ФОТО КНОПКИ</p>
+        <p>Вы можете взаимодействовать с API через HTTP-запросы на любом языке</p>
+        <h3>Аутентификация</h3>
+        <p>Для отправки запроса необходимо в личном кабинете (ЛК) сгененировать ключ <img src="{% static 'images/common/methods/create.png' %}"></p>
         <p>Он используется в заголовке запроса в <code>Authorization</code></p>
+        <p><span>Помните, что ваш ключ API - это секрет!</span> Не делитесь им с другими или не показывайте его в каком-либо коде на стороне клиента 
+            (браузеры, приложения). Запросы в рабочем окружении должны быть направлены через ваш собственный серверный бэкенд, 
+            где ваш ключ API может быть безопасно загружен из переменной среды окружения или службы управления ключами.</p>
 
         <div class="method-container">
             <h3>Генерация текста в ChatGPT</h3>
-            <p>Примеры запросов:</p>
+            <p>Для генерации текста необходимо отправить на эндпоинт <code>https://www.fmt-ai.com/gpt</code> POST-запрос в формате json 
+                с указанием выбранной модели и контента, по которому будет сгененрирован текст
+            </p>
+            <p>Поддерживаются все актуальные модели</p>
+            <h4>Примеры запросов:</h4>
             <p>Python</p>
             <pre>
                 import requests
@@ -24,7 +32,8 @@
                 req = requests.post(
                         url='https://www.fmt-ai.com/gpt',
                         headers={
-                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                            'Authorization': KEY,
+                            'Content-Type': 'application/json'
                         },
                 
                         json={
@@ -56,7 +65,8 @@
             <p>cURL</p>
             <pre>
                 curl -X POST \
-                -H "Authorization: ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y" \
+                -H "Authorization: KEY" \
+                -H "Content-Type: application/json"\
                 -d "{
                 \"model\": \"gpt-4o\",
                     \"messages\": [
@@ -82,7 +92,7 @@
                 }" "https://www.fmt-ai.com/gpt"
             </pre>
 
-            <p>Ответ</p>
+            <p>Примерный ответ</p>
             <pre>
                 {
                     "id": "chatcmpl-AnB2bmDiq5d6hvpta9s8ozFJOvzBh",
@@ -114,6 +124,10 @@
 
         <div class="method-container">
             <h3>Генерация изображения в ChatGPT</h3>
+            <p>Для генерации изображения необходимо отправить на эндпоинт <code>https://www.fmt-ai.com/dalle</code> POST-запрос в формате json 
+                с указанием размера, качества и контента, по которому будет сгененрировано изображение
+            </p>
+            <p>Поддерживаются все актуальные разрешения и качества от OpenAI</p>
             <p>Примеры запросов:</p>
             <p>Python</p>
             <pre>
@@ -123,7 +137,8 @@
                 req = requests.post(
                         url='https://www.fmt-ai.com/dalle',
                         headers={
-                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                            'Authorization': KEY,
+                            'Content-Type': 'application/json'
                         },
                 
                         json={
@@ -138,14 +153,15 @@
             <p>cURL</p>
             <pre>
                 curl -X POST \
-                -H "Authorization: ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y" \
+                -H "Authorization: KEY" \
+                -H "Content-Type: application/json" \
                 -d "{
                     \"prompt\": \"Spartans\",
                     \"size\": \"1024x1024\",
                     \"quality\": \"standard\"}" "https://www.fmt-ai.com/dalle"
             </pre>
 
-            <p>Ответ</p>
+            <p>Примерный ответ</p>
             <pre>
                 {
                     "created": 1736330889,
@@ -159,16 +175,20 @@
     
         <div class="method-container">
             <h3>Транскрибация аудио в ChatGPT</h3>
+            <p>Для генерации изображения необходимо отправить на эндпоинт <code>https://www.fmt-ai.com/stt</code> POST-запрос, 
+                содержащий объект транскрибируемого файла
+            </p>
             <p>Примеры запросов:</p>
             <p>Python</p>
             <pre>
                 import requests
 
-                file = open('ttr1.mp3', 'rb')
-                req = requests.post(
+                file = open('audio.mp3', 'rb')
+                r = requests.post(
                         url='https://www.fmt-ai.com/stt',
                         headers={
-                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                            'Authorization': KEY,
+                            'Content-Type': 'multipart/form-data'
                         },
 
                         data={
@@ -180,25 +200,35 @@
                 )
             </pre>
 
-            <p>Ответ</p>
+            <p>cURL</p>
             <pre>
-                Сервер отправляет ответ,  в втрибуте <code>text</code> которого содержится транскрибация
-                <code>'Да, на Титане, крупнейшем спутнике Сатурна, действительно существуют осадки, которые можно сравнить с дождём. Однако это не водяной дождь, как мы его знаем на Земле. На Титане идёт дождь из метана и этана, так как эти вещества находятся в жидком состоянии при температурах, характерных для Титана, около 180 градусов Цельсия. Метановые дожди могут образовываться в результате конденсации метана в атмосфере, и некоторые исследования показали, что такие осадки могут происходить в результате сезонных изменений. На Титане также имеются реки и озёра из метана и этана, что создаёт уникальный климатический и геологический цикл, отличающийся от земного.'</code>
+                curl -X POST \
+                -H "Authorization: KEY" \
+                -H "Content-Type: multipart/form-data" \
+                -F file="@/path/to/file/audio.mp3" \ 
+                -F model="whisper-1" "https://www.fmt-ai.com/stt"
             </pre>
+
+            <p>Ответ</p>
+            <p>В ответе содержится транскрибированный текст</p>
         </div>
 
         <div class="method-container">
-            <h3>Конвертация текста в звуковую дорожку в ChatGPT</h3>
+            <h3>Конвертация текста в звуковую дорожку</h3>
+            <p>Для генерации изображения необходимо отправить на эндпоинт <code>https://www.fmt-ai.com/tts</code> POST-запрос в формате json 
+                с указанием модели, голоса озвучки и текста, по которому будет сгененрировано изображение
+            </p>
             <p>Примеры запросов:</p>
             <p>Python</p>
             <pre>
                 import requests
                 import json
 
-                req = requests.post(
+                r = requests.post(
                         url='https://www.fmt-ai.com/tts',
                         headers={
-                            'Authorization': "ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y"
+                            'Authorization': KEY,
+                            'Content-Type': 'application/json'
                         },
                 
                         json={
@@ -212,7 +242,8 @@
             <p>cURL</p>
             <pre>
                 curl -X POST \
-                -H "Authorization: ZTlt9Kqd2sFHqdwKiaR4TaDxU2vVCIFMhmCnb7Qk5WRzWJEc14y" \
+                -H "Authorization: KEY" \
+                -H "Content-Type: application/json" \
                 -d "{\"model\": \"tts-1\",
                 \"voice\": \"echo\",
                 \"input\": \"Фото́н (от др.-греч. φῶς, фос — свет) — фундаментальная частица, квант электромагнитного излучения (в узком смысле — света) в виде поперечных электромагнитных волн и переносчик электромагнитного взаимодействия. Это безмассовая частица, способная существовать, только двигаясь со скоростью света. Электрический заряд фотона равен нулю. Фотон может находиться только в двух спиновых состояниях с проекцией спина на направление движения (спиральностью) ±1. В физике фотоны обозначаются буквой γ.
