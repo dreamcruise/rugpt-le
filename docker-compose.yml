@@ -3,7 +3,7 @@ version: '3.11'
 services:
   web:
     build: ./proj
-    command: sh -c "gunicorn --bind 0.0.0.0:8000 proj.wsgi"
+    command: sh -c "gunicorn --bind 0.0.0.0:8000 proj.proj.wsgi"
     volumes:
       - ./proj/:/usr/src/proj/
     ports:
