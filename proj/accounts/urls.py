@@ -9,4 +9,5 @@ urlpatterns = [
     path('dashboard/<slug:user_slug>', views.dash, name='dashboard'),
     path('dashboard/<slug:user_slug>/keys/<slug:pk_slug>', views.show_pk, name='pk_delete'),
     path('dashboard/<slug:user_slug>/balance', views.show_balance, name='balance'),
+    path('check_key/', views.check_key, name='check_key'),
 ]

@@ -3,8 +3,9 @@ from django.views.generic import CreateView, DetailView
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
+from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse_lazy
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404, HttpResponseForbidden
 
 from .forms import UserAccountCreationForm, CustomAuthenticationForm
 from .models import PrivateKey, UserAccount
@@ -66,3 +67,17 @@ def save_payment(request):
         return HttpResponse()
     return redirect('home')
 
+@csrf_exempt
+def check_key(request):
+    if request.method == 'POST':
+        autorization = request.headers.get('Authorization', '')
+
+        parts = autorization.split(' ')
+        
+        if len(parts) != 2 or parts[0] != 'Bearer':
+            return HttpResponseForbidden('Invalid key was provied!')
+        if PrivateKey.objects.filter(key=parts[1]).exists():
+            return HttpResponse(status=200)
+        return HttpResponseForbidden('The key was not found!')
+    
+    return Http404('The page is not found!')
