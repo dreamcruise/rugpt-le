@@ -1,3 +1,9 @@
+.main-container{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 80vh;
+}
+
 pre{
     color: white;
     background-color: #202123;
@@ -8,7 +14,3 @@ img{
     width: 180px;
 }
 
-.main-container{
-    margin-left: 10px;
-    margin-right: 10px;
-}
